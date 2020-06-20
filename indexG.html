@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coordinates</title>
+    <style>
+        body{
+            background-color:royalblue;
+        }
+        p{
+            font-weight: 200;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+
+        }
+
+    </style>
+</head>
+<body>
+<h1>Get your coordinates</h1>
+<p>This is my simple app using the API geolocation.</p>
+
+<button onclick="getLocation()">Request</button>
+<div>
+<p id="cord"></p>
+</div>
+
+<script>
+var x = document.getElementById("cords");
+var y =document.getElementById("long");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude +  "<br>Longitude: " + position.coords.longitude + "<br>altidude: " + position.coords.altitude +
+   "<br> Accuracy :" + position.coords.accuracy + "<br> Time Stamp:"+ position.timestamp+"<br> speed:"+ position.speed  +"<br>heading: " + position.heading ;
+ 
+}
+</script>
+
+
+</body>
+</html>
